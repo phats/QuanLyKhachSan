@@ -1,0 +1,79 @@
+<nav class="navbar  sticky-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"> <img src="../../public/logo.png" class="img-icon" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="d-flex search" role="search">
+            <input class="form-control me-2 empty " type="search" aria-label="Search" placeholder="&#xf002;">
+        </form>
+        {{#if account}}
+        <div class="d-flex">
+
+            <form action="/login/profile" method="GET">
+                <button type="submit" class="btn btn-primary me-2 row">WELCOME,
+                    {{account}}</button>
+            </form>
+            <form action="/logout" method="POST">
+                <button type="submit" class="btn btn-danger">LOG OUT</button>
+            </form>
+        </div>
+        {{else}}
+        <i class="fa-solid fa-bell me-4" style="font-size: 2em;"></i>
+        <a type="button" class="btn user btn-success mr-2 font-weight-bold" href="/login/signin">LOGIN</a>
+        {{/if}}
+    </div>
+    </div>
+</nav>
+
+<style>
+    .img-icon {
+        height: 100px;
+        width: 100px;
+    }
+
+    input.empty {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+    }
+
+    .fa-bell {
+
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        font-size: medium;
+        text-decoration: inherit;
+
+    }
+
+
+    .search {
+        margin-right: auto !important;
+        width: 50%;
+        height: 40px;
+    }
+
+    .user {
+        height: 70px;
+        width: 70px;
+        background-color: #F4EBEB;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .form-control {
+        background-color: #F4EBEB;
+    }
+
+    .navbar {
+        background-color: rgb(255, 255, 255) !important;
+    }
+
+    .nav-item a {
+        color: white !important;
+    }
+</style>

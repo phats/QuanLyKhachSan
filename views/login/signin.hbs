@@ -1,0 +1,55 @@
+<div class="container signin">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5" style="box-shadow: 10px 10px #667EEA ;">
+                    <img src="../../public/logo.png" class="img-icon rounded mx-auto d-block" alt="">
+                    <h2 class="card-title text-center mb-5 " style="color:#667EEA">Login</h3>
+                        <h4 class="card-title text-center mb-2 " style="color:#4A5568">Sign in to your account</h3>
+
+                            {{#if error}}
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                    aria-label="Danger:">
+                                    <use xlink:href="#exclamation-triangle-fill" />
+                                </svg>
+                                <div>
+                                    {{error}}
+                                </div>
+                            </div>
+                            {{/if}}
+
+                            <form method="POST" action="">
+                                <div class=" mb-3 ">
+                                    <label for="floatingInput" class="form-label"></label>
+
+                                    <input name="username" type="text" class="form-control" id="floatingInput">
+                                </div>
+                                <div class=" mb-3">
+                                    <input name="password" type="password" class="form-control" id="floatingPassword">
+                                </div>
+                                <div class="d-grid mb-4">
+                                    <button class="btn  btn-login text-uppercase fw-bold" name="signin" value="signin"
+                                        style="background-color:#667EEA; color:white">Login</button>
+                                </div>
+                                <div class="d-grid mb-2">
+                                    <button class="btn  btn-login text-uppercase fw-bold"
+                                        style="background-color:#C8BFBF;color:#4A5568">
+
+                                        Forgot password
+
+                                    </button>
+                                </div>
+                            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .signin {
+        font-family: 'Roboto';
+
+    }
+</style>

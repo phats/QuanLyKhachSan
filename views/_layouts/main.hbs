@@ -10,7 +10,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
 </head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #E8EEEF;
+    }
+
+    .increase-font {
+        font-size: calc(1em + 0.2em);
+        /* Tăng kích thước font chữ lên 1 đơn vị */
+    }
+
+    footer {
+        margin-top: auto;
+
+    }
+</style>
 
 <body>
     {{> header}}

@@ -12,7 +12,9 @@
         <div class="d-flex">
 
             <form action="/login/profile" method="GET">
-                <button type="submit" class="btn btn-primary me-2 row">WELCOME,
+                <i class="fa-solid fa-bell me-4" style="font-size: 2em;"></i>
+                <button type="submit" class="btn user btn-success mr-2 font-weight-bold"><i class="fa-solid fa-user"
+                        style="font-size: 2.5em;"></i>WELCOME,
                     {{account}}</button>
             </form>
             <form action="/logout" method="POST">
@@ -20,8 +22,9 @@
             </form>
         </div>
         {{else}}
-        <i class="fa-solid fa-bell me-4" style="font-size: 2em;"></i>
-        <a type="button" class="btn user btn-success mr-2 font-weight-bold" href="/login/signin">LOGIN</a>
+
+        <a type="button" class="btn btn-success mr-2 font-weight-bold" href="/login/signin">LOGIN</a>
+
         {{/if}}
     </div>
     </div>
@@ -29,8 +32,15 @@
 
 <style>
     .img-icon {
-        height: 100px;
-        width: 100px;
+        height: 80px;
+        width: 110px;
+    }
+
+    a.user {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
     }
 
     input.empty {
@@ -38,6 +48,11 @@
         font-style: normal;
         font-weight: normal;
         text-decoration: inherit;
+    }
+
+    .fa-user {
+        color: #000;
+
     }
 
     .fa-bell {
@@ -53,7 +68,7 @@
 
     .search {
         margin-right: auto !important;
-        width: 50%;
+        width: 30%;
         height: 40px;
     }
 
@@ -63,6 +78,7 @@
         background-color: #F4EBEB;
         border-radius: 50%;
         display: inline-block;
+
     }
 
     .form-control {

@@ -28,26 +28,30 @@ app.use(
 app.set('view engine', 'hbs')
 
 app.get('/', function (req, res) {
-    res.render('home')
+    res.render('login/signin', {
+        account: req.session.user,
+    })
 })
 
 app.use('/', require('./routes/login.r'));
-// function requireLogin(req, res, next) {
-//     if (req.session.user) {
-//         next();
-//     } else {
-//         res.redirect("/login/signin");
-//     }
-// }
+function requireLogin(req, res, next) {
+    const isLoggedIn = true; // Replace with your login status logic
+
+    if (req.session.user) {
+        res.render("home", { isLoggedIn })
+
+    } else {
+        res.redirect("/login/signin");
+    }
+}
 
 // // Apply the middleware to all routes that require authentication
-// app.use(requireLogin);
+app.use(requireLogin);
 // app.use((err, req, res, next) => {
 //     const status = err.status | 500;
 //     res.status(status).send(err.message);
 // });
 
-//app.use("/",require("./"))
 
 
 app.listen(port, function () {

@@ -6,5 +6,7 @@ exports.signin = async (req, res, next) => {
     }
     else {
         console.log(req.body);
+        req.session.user = req.body.username;
+        res.render("home")
     }
 }

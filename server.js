@@ -27,13 +27,10 @@ app.use(
 
 app.set('view engine', 'hbs')
 
-// app.get('/', function (req, res) {
+app.get('/', function (req, res) {
 
-//     res.render('home',
-//         {
-//             account: req.session.user,
-//         })
-// })
+    res.render('home')
+})
 // app.use('/', require('./routes/login.r'));
 // function requireLogin(req, res, next) {
 //     if (req.session.user) {

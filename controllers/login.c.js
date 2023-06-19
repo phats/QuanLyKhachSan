@@ -1,4 +1,6 @@
 const userM = require("../models/login.m");
+const salt = 10;
+const bcrypt = require("bcryptjs")
 
 exports.home = async (req, res, next) => {
     var isLoggedIn = false
@@ -19,9 +21,23 @@ exports.signin = async (req, res, next) => {
         res.render('login/signin');
     }
     else if (req.method == "POST") {
-        console.log(req.body);
-        req.session.user = req.body.username;
-        res.redirect("/home")
+        const username = req.body.username
+        const password = req.body.password
+        const exists = await userM.checkUserExist(username)
+        const userDatabase = await userM.getUserByEmail(username);
+        if (exists[0].exist === 1) {
+            const compare = bcrypt.compareSync(password, userDatabase[0].MatKhau);
+            if (compare) {
+                req.session.user = req.body.username;
+                res.redirect("/home")
+            } else {
+                res.render('login/signin', {
+                    error: "Password incorrect",
+                });
+            }
+        }
+
+
     }
 }
 exports.logout = async (req, res, next) => {

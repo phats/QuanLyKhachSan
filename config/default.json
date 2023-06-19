@@ -2,7 +2,7 @@
   "mysql": {
     "host": "localhost",
     "user": "root",
-    "database": "khachsan",
+    "database": "hotel",
     "password": "123456789",
     "connectionLimit": 50
   }

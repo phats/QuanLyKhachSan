@@ -1,9 +1,140 @@
 {{#if isLoggedIn}}
+<div class="container-fluid">
+    <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')"><i class="fa-solid  fa-house"></i>
+            <h5>Home
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa-solid fa-user"></i>
+            <h5>Customer</h5>
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class="fa-solid fa-users"></i>
+            <h5>Tourist</h5>
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa-solid fa-door-open"></i>
+            <h5>Room</h5>
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class="fa-solid fa-ticket"></i>
+            <h5>Ticket</h5>
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa-solid fa-plane-up"></i>
+            <h5>Tour</h5>
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <h5>Logout</h5>
+        </button>
+    </div>
+
+    <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+
+</div>
+
+
+<style>
+    * {
+        box-sizing: border-box
+    }
+
+    .container-fluid {
+        font-family: 'Aclonica';
+    }
+
+    /* Style the tab */
+    .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #4B85A6;
+        width: 15%;
+        height: 300px;
+
+    }
+
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        display: flex;
+        background-color: inherit;
+        color: black;
+        padding: 31px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        justify-content: space-evenly;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #9b8e8e;
+    }
+
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+        background-color: #D9D9D9;
+    }
+
+
+
+
+
+    /* Style the tab content */
+    .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        border: 1px solid #ccc;
+        width: 85%;
+        border-left: none;
+        height: 659px;
+
+    }
+
+    .fa-user {
+        color: black;
+    }
+</style>
+
 <script>
     function showNav() {
         var nav = document.getElementById("header");
         nav.style.display = "flex";
     }
     showNav();
+    function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the link that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+
 </script>
 {{/if}}

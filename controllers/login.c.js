@@ -32,9 +32,14 @@ exports.signin = async (req, res, next) => {
                 res.redirect("/home")
             } else {
                 res.render('login/signin', {
-                    error: "Password incorrect",
+                    error: "Incorrect password",
                 });
             }
+        }
+        else {
+            res.render('login/signin', {
+                error: "Invalid user",
+            });
         }
 
 

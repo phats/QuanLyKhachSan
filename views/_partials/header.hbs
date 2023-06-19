@@ -17,11 +17,7 @@
                     {{account}}
                 </button>
             </form>
-            <form action="/logout" method="POST">
-                <button type="submit" class="btn  btn-danger  "><i class="fa-solid fa-right-from-bracket"></i>Log out
-                </button>
 
-            </form>
 
         </div>
         {{else}}
@@ -32,8 +28,120 @@
     </div>
     </div>
 </nav>
+<div class="container-fluid">
+    <div class="tab" id="tab">
+        <button class="tablinks" id="defaultOpen"><i class="fa-solid  fa-house"></i>
+            <a class="nav-link active" href="/home">
+                <h5>Home</h5>
+            </a>
+        </button>
+        <button class="tablinks"><i class="fa-solid fa-user"></i>
+
+            <a class="nav-link active" href="/customer">
+                <h5>Customer</h5>
+            </a>
+        </button>
+        <button class="tablinks"><i class="fa-solid fa-users"></i>
+
+            <a class="nav-link active" href="/tourist">
+                <h5>Tourist</h5>
+            </a>
+        </button>
+        <button class="tablinks"><i class="fa-solid fa-door-open"></i>
+
+            <a class="nav-link active" href="/room">
+                <h5>Room</h5>
+            </a>
+        </button>
+        <button class="tablinks"><i class="fa-solid fa-ticket"></i>
+
+            <a class="nav-link active" href="/ticket">
+                <h5>Ticket</h5>
+            </a>
+        </button>
+        <button class="tablinks"><i class="fa-solid fa-plane-up"></i>
+
+            <a class="nav-link active" href="/tour">
+                <h5>Tour</h5>
+            </a>
+        </button>
+        <button class="tablinks"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+            <a class="nav-link active" href="/logout">
+                <h5>Logout</h5>
+            </a>
+        </button>
+    </div>
+
+</div>
+
+
 
 <style>
+    * {
+        box-sizing: border-box
+    }
+
+    .container-fluid {
+        font-family: 'Aclonica';
+    }
+
+    /* Style the tab */
+    .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #4B85A6;
+        width: 15%;
+        height: 300px;
+        display: none;
+
+    }
+
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        display: flex;
+        background-color: inherit;
+        color: black;
+        padding: 31px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        justify-content: space-evenly;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #9b8e8e;
+    }
+
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+        background-color: #D9D9D9;
+    }
+
+
+
+
+
+    /* Style the tab content */
+    .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        border: 1px solid #ccc;
+        width: 85%;
+        border-left: none;
+        height: 659px;
+
+    }
+
+    .tablinks .fa-user {
+        color: black;
+    }
+
     .img-icon {
         height: 60px;
         width: 90px;

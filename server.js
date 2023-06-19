@@ -37,9 +37,7 @@ app.get('/', function (req, res) {
 app.use('/', require("./routes/login.r"))
 
 
-// app.use('/', require('./routes/login.r'));
 function requireLogin(req, res, next) {
-    //const isLoggedIn = true; // Replace with your login status logic
 
     if (req.session.user) {
 
@@ -49,12 +47,17 @@ function requireLogin(req, res, next) {
     }
 }
 
-// // // Apply the middleware to all routes that require authentication
 app.use(requireLogin);
-// app.use((err, req, res, next) => {
-//     const status = err.status | 500;
-//     res.status(status).send(err.message);
-// });
+app.use((err, req, res, next) => {
+    const status = err.status | 500;
+    res.status(status).send(err.message);
+});
+app.use('/', require('./routes/customer.r'))
+app.use('/', require('./routes/room.r'))
+app.use('/', require('./routes/ticket.r'))
+app.use('/', require('./routes/tour.r'))
+app.use('/', require('./routes/tourist.r'))
+
 
 
 

@@ -26,26 +26,30 @@ app.use(
 
 
 app.set('view engine', 'hbs')
-
 app.get('/', function (req, res) {
-    res.render('login/signin', {
-        account: req.session.user,
-    })
-})
 
-app.use('/', require('./routes/login.r'));
+    res.render('home',
+        {
+            isLoggedIn: true,
+            account: req.session.user,
+        })
+})
+app.use('/', require("./routes/login.r"))
+
+
+// app.use('/', require('./routes/login.r'));
 function requireLogin(req, res, next) {
-    const isLoggedIn = true; // Replace with your login status logic
+    //const isLoggedIn = true; // Replace with your login status logic
 
     if (req.session.user) {
-        res.render("home", { isLoggedIn })
 
+        next();
     } else {
         res.redirect("/login/signin");
     }
 }
 
-// // Apply the middleware to all routes that require authentication
+// // // Apply the middleware to all routes that require authentication
 app.use(requireLogin);
 // app.use((err, req, res, next) => {
 //     const status = err.status | 500;

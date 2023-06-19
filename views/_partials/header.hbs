@@ -1,6 +1,6 @@
 <nav class="navbar  sticky-top navbar-expand-lg bg-body-tertiary" id="header">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"> <img src="../../public/logo.png" class="img-icon" alt=""></a>
+        <a class="navbar-brand" href="/home"> <img src="../../public/logo.png" class="img-icon" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,20 +10,23 @@
         </form>
         {{#if account}}
         <div class="d-flex">
+            <i class="fa-solid fa-bell " style="font-size: 2em;"></i>
 
             <form action="/login/profile" method="GET">
-                <i class="fa-solid fa-bell me-4" style="font-size: 2em;"></i>
-                <button type="submit" class="btn user btn-success mr-2 font-weight-bold"><i class="fa-solid fa-user"
-                        style="font-size: 2.5em;"></i>WELCOME,
-                    {{account}}</button>
+                <button type="submit" class="btn  btn-success mx-4 "><i class="fa-solid fa-user"></i>
+                    {{account}}
+                </button>
             </form>
             <form action="/logout" method="POST">
-                <button type="submit" class="btn btn-danger">LOG OUT</button>
+                <button type="submit" class="btn  btn-danger  "><i class="fa-solid fa-right-from-bracket"></i>Log out
+                </button>
+
             </form>
+
         </div>
         {{else}}
 
-        <a type="button" class="btn btn-success mr-2 font-weight-bold" href="/login/signin">LOGIN</a>
+        <a type=" button" class="btn btn-success mr-2 font-weight-bold" href="/login/signin">LOGIN</a>
 
         {{/if}}
     </div>
@@ -32,8 +35,9 @@
 
 <style>
     .img-icon {
-        height: 80px;
-        width: 110px;
+        height: 60px;
+        width: 90px;
+
     }
 
     a.user {
@@ -51,8 +55,8 @@
     }
 
     .fa-user {
-        color: #000;
-
+        color: #ffffff;
+        width: 16px;
     }
 
     .fa-bell {
@@ -72,13 +76,19 @@
         height: 40px;
     }
 
-    .user {
-        height: 70px;
-        width: 70px;
-        background-color: #F4EBEB;
-        border-radius: 50%;
-        display: inline-block;
+        {
+            {
+            !-- .user {
+                height: 70px;
+                width: 70px;
+                background-color: #F4EBEB;
+                border-radius: 50%;
+                display: inline-block;
 
+            }
+
+            --
+        }
     }
 
     .form-control {

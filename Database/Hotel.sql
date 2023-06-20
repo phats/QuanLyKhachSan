@@ -6,10 +6,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema HOTEL
 -- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema HOTEL
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `HOTEL` DEFAULT CHARACTER SET utf8 ;
 USE `HOTEL` ;
 
@@ -151,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `HOTEL`.`NhanVien` (
   `MaNV` INT NOT NULL auto_increment,
   `TenNV` VARCHAR(50) NULL,
   `EMAIL` VARCHAR(50) NULL,
-  `MatKhau` VARCHAR(50) NULL,
+  `MatKhau` VARCHAR(500) NULL,
   `SDT` VARCHAR(45) NULL,
   PRIMARY KEY (`MaNV`))
 ENGINE = InnoDB;
@@ -527,6 +523,7 @@ VALUES
   (18,"Bevis Knapp","imperdiet.ullamcorper@outlook.org","0535174744","123"),
   (19,"Dora Wilder","nibh@yahoo.ca","0661960706","123"),
   (20,"Laura Russo","quam.a@outlook.edu","0085696086","123");
+ (21,"Benzema","benzema@outlook.edu","0085696086","$2a$10$HAnrlbKuGjr2dWQKZ1NZ8eO4NwX.GhOC28yqGHa3JikussSRSBHnG");
 
 select * from nhanvien;
 

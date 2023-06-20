@@ -522,7 +522,7 @@ VALUES
   (17,"Len Velazquez","semper@protonmail.com","0184526683","123"),
   (18,"Bevis Knapp","imperdiet.ullamcorper@outlook.org","0535174744","123"),
   (19,"Dora Wilder","nibh@yahoo.ca","0661960706","123"),
-  (20,"Laura Russo","quam.a@outlook.edu","0085696086","123");
+  (20,"Laura Russo","quam.a@outlook.edu","0085696086","123"),
  (21,"Benzema","benzema@outlook.edu","0085696086","$2a$10$HAnrlbKuGjr2dWQKZ1NZ8eO4NwX.GhOC28yqGHa3JikussSRSBHnG");
 
 select * from nhanvien;

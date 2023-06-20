@@ -1,5 +1,5 @@
 const tourM = require("../models/tour.m")
-const userM = require("../models/login.m");
+const customerM = require("../models/customer.m");
 
 exports.allTour = async (req, res, next) => {
     var isLoggedIn = false
@@ -18,12 +18,10 @@ exports.allTour = async (req, res, next) => {
 
 }
 exports.addTour = async (req, res, next) => {
+    const id = +req.query.id || -1;
+    const tour = await tourM.getTourByID(id)
 
     if (req.method === "GET") {
-
-        const id = +req.query.id || -1;
-        const tour = await tourM.getTourByID(id)
-
         res.render("tour/addtour", {
 
             account: req.session.user,
@@ -31,19 +29,49 @@ exports.addTour = async (req, res, next) => {
         });
     }
     else {
-        var isTourRegister = false
+        var isTourRegister = true
         var error = "";
 
         if (req.body.firstname == '' || req.body.email == '' || req.body.phone == '' || req.body.no_ofparticipants == '') {
             error = "Please fill in all the information"
+            isTourRegister = false
 
         } else {
-            const userDatabase = userM.getUserByEmail(req.body.email);
-            const exists = await userM.checkUserExist(req.body.email)
+            const customerDatabase = await customerM.getOneCustomer(req.body.email);
+            const exists = await customerM.checkCustomerExist(req.body.email)
             if (exists[0].exist === 1) {
+                if (customerDatabase[0].HOTEN !== req.body.firstname) {
+                    error = "Wrong customer name"
+                    isTourRegister = false
+
+
+
+                }
+                if (customerDatabase[0].SDT !== req.body.phone) {
+                    error = "Wrong customer phone"
+                    isTourRegister = false
+
+                }
+                if (isNaN(req.body.no_ofparticipants)) {
+                    error = "Number of participant must a number"
+                    isTourRegister = false
+                }
+            }
+            else {
+                error = "Customer doesn't exist"
+                isTourRegister = false
 
             }
+
         }
+
+        res.render("tour/addtour", {
+            isTourRegister,
+            error, timestart: tour[0].GIOKHOIHANH,
+            account: req.session.user,
+
+
+        })
     }
 }
 

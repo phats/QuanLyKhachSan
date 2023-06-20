@@ -26,7 +26,9 @@ exports.signin = async (req, res, next) => {
         const exists = await userM.checkUserExist(username)
         const userDatabase = await userM.getUserByEmail(username);
         if (exists[0].exist === 1) {
-            const compare = bcrypt.compareSync(password, userDatabase[0].MatKhau);
+
+            const compare = bcrypt.compareSync(password, userDatabase[0].MATKHAU);
+
             if (compare) {
                 req.session.user = req.body.username;
                 res.redirect("/home")

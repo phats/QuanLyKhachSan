@@ -26,14 +26,7 @@ app.use(
 
 
 app.set('view engine', 'hbs')
-app.get('/', function (req, res) {
 
-    res.render('home',
-        {
-            isLoggedIn: true,
-            account: req.session.user,
-        })
-})
 app.use('/', require("./routes/login.r"))
 
 

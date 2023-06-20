@@ -1,89 +1,42 @@
 <div class="container-fluid">
     <div class="d-flex flex-column mb-3">
+
+        {{#each this.tours}}
         <div class="p-2 ">
             <div class="card mx-auto mb-2 shadow" style="max-width: 80%;height:290px">
                 <div class="row g-0">
                     <div class="col-md-5 ms-3 mt-3">
-                        <img src="../../public/mytho.jpg" class="img-fluid rounded " alt="...">
+                        <img src="../../public/vinh_ha_long.jpg" class="img-fluid rounded " alt="...">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-weight: bolder;">Hồ Chí Minh - Mỹ Tho - Cần Thơ - Miền
-                                Tây 2N1Đ</h6>
+                            <h6 class="card-title" style="font-weight: bolder;">{{TENTOUR}}</h6>
                             <p class="card-text mb-0" style="font-weight:lighter;">
-                                <i class="fa-solid fa-location-dot"></i>Hồ Chí Minh - Cù lao Thới Sơn - Cồn Phụng
-                                - Chợ nổi Cái Răng
+                                <i class="fa-solid fa-location-dot" style="color:rgb(244, 57, 57)"></i>{{DIEMTHAMQUAN}}
                             </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;"> <i
-                                    class="fa-solid fa-calendar-days"></i>Khởi hành: Thứ 6, Thứ 7 hàng tuần</p>
-                            <p class="card-text mb-0" style="font-weight:lighter;"><i
-                                    class="fa-solid fa-thumbs-up"></i>Điểm nổi bật:</p>
-                            <p class="card-text mb-0 mt-1" style="font-weight:lighter;font-size: smaller;">
-                                Tham quan khu du lịch Cồn Phụng
+                            <p class="card-text mb-0" style="font-weight:lighter;"> <i class="fa-solid fa-calendar-days"
+                                    style="color:rgb(246, 190, 87)"></i>{{GIOKHOIHANH}}</p>
+                            <p class="card-text mb-0" style="font-weight:lighter;"><i class="fa-solid fa-thumbs-up"
+                                    style="color:rgb(103, 103, 243)"></i>Điểm nổi bật:</p>
+                            <p class="card-text mb-0 mt-1" style="font-weight:lighter;font-size:medium;">
+                                {{GHICHU}}
                             </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Trải nghiệm đi chợ nổi Cái Răng
-                            </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Thử sức làm đặc sản kẹo dừa Bến Tre
-                            </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Điểm tham quan: Cù lao Thới Sơn, Cồn Phụng, Chợ nổi Cái Răng
-                            </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Chủ đề: Văn hóa </p>
+
+                            <p class="card-text mb-0" style="font-weight:lighter;font-size: medium;">
+                                Chủ đề :{{CHUDE}} </p>
                             <button type="button " class="btn btn-outline-danger" style=" position:relative;left:80%"><a
-                                    class="nav-link active" href="/tour/addtour">
-                                    <h5>1.790.000vnđ</h5>
+                                    class="nav-link active" href="/tour/addtour?id={{MATOUR}}">
+                                    <h5>{{GIATOUR}}vnđ</h5>
                                 </a></button>
                         </div>
 
                     </div>
+
                 </div>
             </div>
         </div>
-        <div class="p-2">
-            <div class="card mx-auto mb-2 shadow" style="max-width: 80%; height:290px">
-                <div class="row g-0">
-                    <div class="col-md-5 ms-3 mt-3">
-                        <img src="../../public/camau.jpg" class="img-fluid rounded " alt="...">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-weight: bolder;">Khám phá sông nước miền Tây: Cần Thơ -
-                                Cà Mau 4N3Đ</h6>
-                            <p class="card-text mb-0" style="font-weight:lighter; ">
-                                <i class="fa-solid fa-location-dot"></i>Hà Nội - Nhà công tử Bạc Liêu - Rừng Tràm Trà Sư
-                                - Chợ nổi Cái Răng
-                            </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;"> <i
-                                    class="fa-solid fa-calendar-days"></i>Khởi hành: Thứ 6, Thứ 7 hàng tuần
-                            </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;"><i
-                                    class="fa-solid fa-thumbs-up"></i>Điểm nổi bật:</p>
-                            <p class="card-text mb-0 mt-1" style="font-weight:lighter;font-size: smaller;">
-                                Thưởng thức bữa tối trên du thuyền Cần Thơ
-                            </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Check in mũi Cà Mau, nhà Công Tử Bạc Liêu
-                            </p>
+        {{/each}}
 
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Điểm tham quan: Chùa Dơi, Nhà công tử Bạc Liêu, Đất Mũi, Rừng Tràm Trà Sư, Miếu Bà Chúa
-                                Xứ Núi Sam, Chợ nổi Cái Răng </p>
-                            <p class="card-text mb-0" style="font-weight:lighter;font-size: smaller;">
-                                Chủ đề: Khám phá </p>
-                            <button type="button " class="btn btn-outline-danger" style=" position:relative;left:80%"><a
-                                    class="nav-link active" href="/tour/addtour">
-                                    <h5>7.590.000vnđ</h5>
-                                </a></button>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 

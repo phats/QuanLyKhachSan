@@ -43,18 +43,34 @@ exports.addTour = async (req, res, next) => {
                 if (customerDatabase[0].HOTEN !== req.body.firstname) {
                     error = "Wrong customer name"
                     isTourRegister = false
-
-
-
                 }
                 if (customerDatabase[0].SDT !== req.body.phone) {
                     error = "Wrong customer phone"
                     isTourRegister = false
-
                 }
                 if (isNaN(req.body.no_ofparticipants)) {
                     error = "Number of participant must a number"
                     isTourRegister = false
+                }
+                else {
+                    const exist = await tourM.checkThamGia(id, customerDatabase[0].MAKH)
+
+                    if (exist[0].exist === 1) {
+                        error = "Already add";
+                        isTourRegister = false
+
+                    }
+                    else {
+                        const thamgia = {
+                            TOUR_MATOUR: id,
+                            KHACHHANG_MAKH: customerDatabase[0].MAKH,
+                            PHUONGTIENDICHUYEN: req.body.vehicle,
+                            YEUCAU: req.body.speacialneed
+
+                        }
+                        await tourM.addToThamGia(thamgia)
+                    }
+
                 }
             }
             else {

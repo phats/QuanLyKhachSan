@@ -2,6 +2,16 @@ const userM = require("../models/login.m");
 const salt = 10;
 const bcrypt = require("bcryptjs")
 
+exports.main = async (req, res, next) => {
+    var isLoggedIn = false
+    if (req.session.user != null) {
+        isLoggedIn = true
+        res.redirect("/home")
+    }
+    else {
+        res.redirect("/login/signin");
+    }
+}
 exports.home = async (req, res, next) => {
     var isLoggedIn = false
     if (req.session.user != null) {

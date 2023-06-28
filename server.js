@@ -41,6 +41,7 @@ function requireLogin(req, res, next) {
 }
 
 app.use(requireLogin);
+
 app.use((err, req, res, next) => {
     const status = err.status | 500;
     res.status(status).send(err.message);

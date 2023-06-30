@@ -2,7 +2,7 @@
     <div class="d-flex flex-column mb-3">
         <div class="p-2 ">
             <div class="card mx-auto mb-2 shadow" style="max-width: 80%;max-height:700px">
-                <div class="row g-0">
+                <div class="row g-0"></div>
                     <div class="alert shadow alert-light col-md-11 ms-5 mt-3" style="color:#4B85A6" role="alert">
                         Add customer for tour
                     </div>
@@ -81,7 +81,7 @@
                             <input type="text" aria-label="specialneed" name="speacialneed" class="form-control"
                                 style="background-color:#FFFFFF">
                         </div>
-                        <button type="submit " class="btn btn-success mt-1"
+                        <button type="submit " class="btn btn-success mt-4 mb-4"
                             style=" position:relative;left:86%;width:10%;height:31px;text-align:center">
 
                             <a class="nav-link active">
@@ -197,27 +197,10 @@
         overflow: auto;
     }
 </style>
-<script>
-    function showNav() {
-        var nav = document.getElementById("header");
-        nav.style.display = "flex";
-    }
-    showNav()
-    function showTab() {
-        var tab = document.getElementById("tab");
-        tab.style.display = "block";
-    }
-    showTab()
-
-
-
-</script>
-
 {{#if isTourRegister}}
 <script>
     function showRegisterSucceed() {
         var element = document.getElementById("popupregister");
-        console.log(element)
         element.style.visibility = "visible";
         element.style.opacity = 1;
     }

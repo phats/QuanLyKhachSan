@@ -3,7 +3,7 @@
     "host": "localhost",
     "user": "root",
     "database": "hotel",
-    "password": "123456789",
+    "password": "quangphat123",
     "connectionLimit": 50
   }
 }

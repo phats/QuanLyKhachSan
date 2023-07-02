@@ -5,9 +5,4 @@ router.get('/tour', tourC.allTour);
 router.get('/tour/addtour', tourC.addTour);
 router.post('/tour/addtour', tourC.addTour);
 
-
-
-
-
-
 module.exports = router;

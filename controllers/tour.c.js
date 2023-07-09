@@ -5,14 +5,14 @@ const Handlebars = require('handlebars');
 exports.allTour = async (req, res, next) => {
     var isLoggedIn = false
     const tours = await tourM.getAllTour()
-    Handlebars.registerHelper('ChangeStartDateFormat', function(NgayDen) {
+    Handlebars.registerHelper('ChangeStartDateFormat', function (NgayDen) {
         // Thực hiện phép tính để lấy ngày kết thúc
         var startDate = new Date(NgayDen);
-      
+
         // Trả về ngày kết thúc
 
         return startDate.toISOString().split('T')[0];
-      });
+    });
     if (req.session.user != null) {
         isLoggedIn = true
         res.render("tour/tour", {
@@ -48,6 +48,7 @@ exports.addTour = async (req, res, next) => {
         } else {
             const customerDatabase = await customerM.getOneCustomer(req.body.email);
             const exists = await customerM.checkCustomerExist(req.body.email)
+            console.log(customerDatabase)
             if (exists[0].exist === 1) {
                 if (customerDatabase[0].HOTEN !== req.body.firstname) {
                     error = "Wrong customer name"

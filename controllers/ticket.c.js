@@ -25,6 +25,7 @@ exports.getAllTicket = async (req, res, next) => {
   for (let i = 0; i < allTicket.length; i++) {
     const ticket = allTicket[i];
     const MaDat = ticket.MaDat.split(",");
+    console.log(MaDat[0])
     const list_MaDat = await ticketM.getDatById(MaDat[0]);
     allTicket[i] = {
       ...allTicket[i],

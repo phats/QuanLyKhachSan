@@ -5,14 +5,14 @@ const Handlebars = require('handlebars');
 exports.allTour = async (req, res, next) => {
     var isLoggedIn = false
     const tours = await tourM.getAllTour()
-    Handlebars.registerHelper('ChangeStartDateFormat', function(NgayDen) {
+    Handlebars.registerHelper('ChangeStartDateFormat', function (NgayDen) {
         // Thực hiện phép tính để lấy ngày kết thúc
         var startDate = new Date(NgayDen);
-      
+
         // Trả về ngày kết thúc
 
         return startDate.toISOString().split('T')[0];
-      });
+    });
     if (req.session.user != null) {
         isLoggedIn = true
         res.render("tour/tour", {
@@ -46,10 +46,12 @@ exports.addTour = async (req, res, next) => {
             isTourRegister = false
 
         } else {
-            const customerDatabase = await customerM.getOneCustomer(req.body.email);
+            const customerDatabase = await customerM.getOneCustomerByEmail(req.body.email);
+
             const exists = await customerM.checkCustomerExist(req.body.email)
+
             if (exists[0].exist === 1) {
-                if (customerDatabase[0].HOTEN !== req.body.firstname) {
+                if (customerDatabase[0].HoTen !== req.body.firstname) {
                     error = "Wrong customer name"
                     isTourRegister = false
                 }
@@ -62,7 +64,7 @@ exports.addTour = async (req, res, next) => {
                     isTourRegister = false
                 }
                 else {
-                    const exist = await tourM.checkThamGia(id, customerDatabase[0].MAKH)
+                    const exist = await tourM.checkThamGia(id, customerDatabase[0].MaKH)
 
                     if (exist[0].exist === 1) {
                         error = "Already add";
@@ -72,7 +74,7 @@ exports.addTour = async (req, res, next) => {
                     else {
                         const thamgia = {
                             TOUR_MATOUR: id,
-                            KHACHHANG_MAKH: customerDatabase[0].MAKH,
+                            KHACHHANG_MAKH: customerDatabase[0].MaKH,
                             PHUONGTIENDICHUYEN: req.body.vehicle,
                             YEUCAU: req.body.speacialneed
 
@@ -98,5 +100,6 @@ exports.addTour = async (req, res, next) => {
 
         })
     }
+
 }
 
